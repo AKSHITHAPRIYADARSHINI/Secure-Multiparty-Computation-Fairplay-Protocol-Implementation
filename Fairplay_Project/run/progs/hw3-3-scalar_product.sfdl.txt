@@ -1,0 +1,32 @@
+// CS528 – Assignment 3 (Problem 3)
+// Secure Scalar Product using Fairplay (2-Party SFE)
+// Author: [Your Name]
+// Date: 19 Oct 2025
+
+program ScalarProduct {
+
+  const n = 10;
+
+  // ========== Type Definitions ==========
+  // Each party holds 10 Boolean inputs and outputs one 5-bit integer
+  type Alice = struct { Boolean input[n]; Int<5> output; };
+  type Bob   = struct { Boolean input[n]; Int<5> output; };
+
+  // ========== Main Secure Function ==========
+  function void main(Alice alice, Bob bob) {
+
+    var Int<5> sum;
+    var Int<5> i;
+
+    sum = 0;
+
+    // Element-wise AND, then sum all bits
+    for (i = 0 to n-1) {
+      sum = sum + (alice.input[i] & bob.input[i]);
+    }
+
+    // Reveal identical output to both parties
+    alice.output = sum;
+    bob.output   = sum;
+  }
+}

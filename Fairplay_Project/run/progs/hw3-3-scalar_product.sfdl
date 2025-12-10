@@ -1,0 +1,40 @@
+program ScalarProduct {
+    type int4 = Int<4>;
+    type AliceInput = Boolean[10];
+    type BobInput = Boolean[10];
+    type AliceOutput = int4;
+    type BobOutput = int4;
+    type Output = struct {AliceOutput alice, BobOutput bob};
+    type Input = struct {AliceInput alice, BobInput bob};
+    
+    function Output output(Input input) {
+        var Boolean b0, b1, b2, b3, b4, b5, b6, b7, b8, b9;
+        var int4 result;
+        
+        b0 = input.alice[0] & input.bob[0];
+        b1 = input.alice[1] & input.bob[1];
+        b2 = input.alice[2] & input.bob[2];
+        b3 = input.alice[3] & input.bob[3];
+        b4 = input.alice[4] & input.bob[4];
+        b5 = input.alice[5] & input.bob[5];
+        b6 = input.alice[6] & input.bob[6];
+        b7 = input.alice[7] & input.bob[7];
+        b8 = input.alice[8] & input.bob[8];
+        b9 = input.alice[9] & input.bob[9];
+        
+        result = 0;
+        if (b0) result = result + 1;
+        if (b1) result = result + 1;
+        if (b2) result = result + 1;
+        if (b3) result = result + 1;
+        if (b4) result = result + 1;
+        if (b5) result = result + 1;
+        if (b6) result = result + 1;
+        if (b7) result = result + 1;
+        if (b8) result = result + 1;
+        if (b9) result = result + 1;
+        
+        output.alice = result;
+        output.bob = result;
+    }
+}

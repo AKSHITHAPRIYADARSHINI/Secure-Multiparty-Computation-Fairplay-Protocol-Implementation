@@ -1,0 +1,10 @@
+# CS528 Assignment 3 — Problem 3
+# Input matrices and result (Alice: A, Bob: B)
+
+A (Alice):
+[1, 1, 1, 1, 0, 1, 1, 1, 1, 1]
+
+B (Bob):
+[0, 1, 0, 0, 1, 1, 0, 1, 1, 1]
+
+Scalar product A · B = 5
